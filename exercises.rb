@@ -72,26 +72,53 @@ all_orders = [
 
 # See class definitions above for data structure.
 
-# Put your code here
 # 1a. Display the names of the shops
 
 # 1b. Display the sum of the shop's fulfilled orders after the name
 
-# 2a. Display the name of the shop that has the highest sum of fulfilled orders
+# 2. Display the name of the shop that has the largest unfulfilled order
 
-# 2b. Display the sum of order amounts for the shop above
+# 3. Display the name of the shop that had the least orders in May of 2021
 
-# 4. Display the name of the shop that has the most outstanding orders
-
-# 5. Display the name of the shop that had the least orders in April of 2021
-
+# Put your code here
+#1a
 for s in all_shops do
+    # 1 a and b
     print s.name
+    shop_orders = all_orders.select{|o| o.shop_id == s.id && o.fulfilled == true}
+    shop_order_amounts = []
+    for o in shop_orders do
+        shop_order_amounts.push(o.amount)
+    end
+    shop_sum = shop_order_amounts.reduce(:+)
+    print " "
+    print shop_sum
+    print "\n"
+end
+# 2
+unfulfilled_orders = all_orders.select{|o| o.fulfilled == false}
+biggest_unfulfilled_order = unfulfilled_orders.max{|a, b| a.amount <=> b.amount}
+
+shop_with_biggest = all_shops.select{|s| s.id == biggest_unfulfilled_order.shop_id}.first
+print shop_with_biggest.name
+print "\n"
+
+# 3 
+orders_in_may = all_orders.select{|o| o.order_date.mon == 5}
+grouped_in_may = orders_in_may.group_by{|o| o.shop_id}
+key_with_lowest = 0
+min_order_num = 1000
+for gk in grouped_in_may.keys do
+    print gk
+    print " "
+    print grouped_in_may[gk].length
+    if grouped_in_may[gk].length < min_order_num then
+        min_order_num = grouped_in_may[gk].length
+        key_with_lowest = gk
+    end
     print "\n"
 end
 
-for o in all_orders do
-    print o.amount
-    print o.fulfilled
-    print "\n"
-end
+shop_with_lowest = all_shops.select{|s| s.id == key_with_lowest}.first
+print shop_with_lowest.name
+print "\n"
