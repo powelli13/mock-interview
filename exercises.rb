@@ -50,7 +50,19 @@ all_shops = [
 all_orders = [
     Order.new(1, 230, Date.new(2021, 5, 13), true),
     Order.new(1, 145, Date.new(2021, 5, 17), true),
-    Order.new(1, 600, Date.new(2021, 6, 12), false)
+    Order.new(1, 600, Date.new(2021, 6, 12), false),
+    Order.new(2, 55, Date.new(2021, 5, 10), true),
+    Order.new(2, 39, Date.new(2021, 6, 7), false),
+    Order.new(3, 180, Date.new(2021, 5, 5), true),
+    Order.new(3, 490, Date.new(2021, 5, 7), true),
+    Order.new(3, 1250, Date.new(2021, 5, 12), true),
+    Order.new(3, 480, Date.new(2021, 6, 2), true),
+    Order.new(3, 535, Date.new(2021, 6, 8), false),
+    Order.new(3, 499, Date.new(2021, 6, 18), false),
+    Order.new(4, 300, Date.new(2021, 5, 4), true),
+    Order.new(4, 275, Date.new(2021, 5, 28), true),
+    Order.new(4, 35, Date.new(2021, 6, 4), false),
+    Order.new(4, 79, Date.new(2021, 6, 21), false)
 ]
 
 # Your employer has multiple shops with associated orders.
@@ -58,14 +70,20 @@ all_orders = [
 # you have been tasked with getting some reporting statistics
 # from their sales data.
 
+# See class definitions above for data structure.
+
 # Put your code here
-# 1. Display the name of the shop that has the highest sum of fulfilled orders
+# 1a. Display the names of the shops
 
-# 2. Display the sum of order amounts for the shop above
+# 1b. Display the sum of the shop's fulfilled orders after the name
 
-# 3. Display the name of the shop that has the most outstanding orders
+# 2a. Display the name of the shop that has the highest sum of fulfilled orders
 
-# 4. Display the name of the shop that had the least orders in April of 2021
+# 2b. Display the sum of order amounts for the shop above
+
+# 4. Display the name of the shop that has the most outstanding orders
+
+# 5. Display the name of the shop that had the least orders in April of 2021
 
 for s in all_shops do
     print s.name
