@@ -51,6 +51,6 @@ const allOrders = [
 
 // 2. Display the name of the shop that has the largest unfulfilled order
 
-// 3. Display the name of the shop that had the least orders in May of 2021
+// 3. Display the name of the shop that had the least orders in May
 
 // Put your code here
