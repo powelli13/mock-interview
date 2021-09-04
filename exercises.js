@@ -38,10 +38,17 @@ const allOrders = [
   new Order(4, 35, 6, false),
   new Order(4, 79, 6, false)
 ];
+
+
+
+
 // Your employer has multiple shops with associated orders.
 // In order to get better insights into their sales operations
 // you have been tasked with getting some reporting statistics
 // from their sales data.
+
+// Use `node ./exercises.js` to run your solution.
+// Use `console.log()` to display answers.
 
 // See class definitions above for data structure.
 
