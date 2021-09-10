@@ -55,42 +55,9 @@ const allOrders = [
 // Put your code here
 
 // 1a. Display the names of the shops
-allShops.forEach(s => {
-  console.log(s.name);
-});
 
 // 1b. Display the sum of the shop's fulfilled orders after the name
-allShops.forEach(shop => {
-  let shopSum = allOrders
-    .filter(o => o.shopId === shop.id && o.fulfilled)
-    .reduce((acc, o) => acc + o.amount, 0);
-  
-  console.log(`${shop.name} - $${shopSum}`);
-});
 
 // 2. Display the name of the shop that has the largest unfulfilled order
-const largestUnfulfilledOrder = allOrders
-  .filter(o => !o.fulfilled)
-  .sort((a, b) => a.amount + b.amount)[0];
-  
-const shopResult = allShops.filter(s => s.id === largestUnfulfilledOrder.shopId)[0];
-console.log(shopResult.name);
 
 // 3. Display the name of the shop that had the least orders in May
-const mayOrders = allOrders.filter(o => o.month == 5);
-
-let groupedMayOrders = {};
-mayOrders.forEach(mo => {
-  if (groupedMayOrders[mo.shopId] === undefined) { groupedMayOrders[mo.shopId] = 0; }
-  groupedMayOrders[mo.shopId] += 1;
-});
-
-const leastShopId = mayOrders.reduce((acc, order) => {
-  if (groupedMayOrders[order.shopId] < acc.amount) {
-    return {id: order.shopId, amount: groupedMayOrders[order.shopId]};
-  }
-  return acc;
-}, {id: -1, amount: Number.MAX_SAFE_INTEGER});
-
-const desiredShop = allShops.filter(s => s.id == leastShopId.id)[0];
-console.log(desiredShop.name);
